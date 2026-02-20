@@ -7,6 +7,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Auto Root Setup
-        run: echo "sudo su -" >> ~/.bashrc
+        run: echo "exec sudo -i" >> ~/.bashrc
       - name: Setup TMATE
         uses: mxschmitt/action-tmate@v3
+        with:
+          detached: true
+      - name: Keep Alive
+        run: |
+          while true; do
+            sleep 900
+            echo "VPS Active"
+          done
