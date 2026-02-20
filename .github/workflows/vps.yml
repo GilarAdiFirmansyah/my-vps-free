@@ -1,0 +1,12 @@
+name: TMATE VPS
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Auto Root Setup
+        run: echo "sudo su -" >> ~/.bashrc
+      - name: Setup TMATE
+        uses: mxschmitt/action-tmate@v3
